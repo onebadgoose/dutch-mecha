@@ -15,9 +15,18 @@
     {% if prism == true %}
       <link rel="stylesheet" type="text/css" href="/static/css/prism-tomorrow.css">
     {% endif %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cutive&display=swap" rel="stylesheet">
+
+<style>
+  .font-cutive {
+    font-family: 'Cutive', serif !important;
+  }
+</style>
   </head>
-  <body>
-    {% include "./partials/navbar.html" %}
+  <body class="bg-slate-900 text-gray-100 font-cutive">
 
     {{ content | safe }}
 
