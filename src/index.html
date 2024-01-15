@@ -17,7 +17,7 @@ path: home
 
         {% for image in collections.images %}
             <a href="{{image}}" target="_blank" class="w-full aspect-video overflow-hidden">
-              <img src="{{image}}" alt="Mecha Image" class="object-cover hover:scale-105 duration-500	transition-all ease-in-out w-full h-auto">
+              <img src="{{image}}" loading="lazy" alt="Mecha Image" class="object-cover hover:scale-105 duration-500	transition-all ease-in-out w-full h-auto">
             </a>
         {% endfor %}
 
