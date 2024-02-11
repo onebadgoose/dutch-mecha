@@ -6,20 +6,51 @@ path: home
 
 
 <div class="container mx-auto p-4">
-  
+
   <div class="flex container my-4">
     <h1 class="text-3xl serif">Dutch Mecha</h1>
   </div>
- 
+
 
   <div class="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4 w-full container">
-
-
-        {% for image in collections.images %}
-            <a href="{{image}}" target="_blank" class="w-full aspect-video overflow-hidden">
-              <img src="{{image}}" loading="lazy" alt="Mecha Image" class="object-cover hover:scale-105 duration-500	transition-all ease-in-out w-full h-auto">
-            </a>
-        {% endfor %}
-
+    {% for image in collections.images %}
+    <a href="{{image}}" target="_blank" class="w-full aspect-video overflow-hidden image-item"
+      data-index="{{ forloop.index }}" style="display: none;">
+      <img src="{{image}}" loading="lazy" alt="Mecha Image"
+        class="object-cover hover:scale-105 duration-500 transition-all ease-in-out w-full h-auto">
+    </a>
+    {% endfor %}
+    <button id="loadMore" class="btn">Load More</button>
   </div>
+
+
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const items = document.querySelectorAll('.image-item');
+    let itemsToShow = 6; // Initial number of items to show
+    const loadMoreButton = document.getElementById('loadMore');
+
+    function showItems() {
+      items.forEach((item, index) => {
+        if (index < itemsToShow) {
+          item.style.display = 'block';
+        }
+      });
+    }
+
+    function loadMore() {
+      itemsToShow += 6; // Number of items to load on each click
+      showItems();
+
+      if (itemsToShow >= items.length) {
+        loadMoreButton.style.display = 'none'; // Hide button if all items are shown
+      }
+    }
+
+    loadMoreButton.addEventListener('click', loadMore);
+
+    showItems(); // Initial display
+  });
+</script>
