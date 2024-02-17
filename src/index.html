@@ -13,12 +13,12 @@ path: home
 
 
   <div class="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4 w-full container">
-    {% for image in collections.images %}
-    <a href="{{image}}" target="_blank" class="w-full aspect-video overflow-hidden image-item"
-      data-index="{{ forloop.index }}" style="display: none;">
-      <img src="{{image}}" loading="lazy" alt="Mecha Image"
-        class="object-cover hover:scale-105 duration-500 transition-all ease-in-out w-full h-auto">
-    </a>
+    {% for image in collections.images | shuffle %}
+      <a href="{{image}}" target="_blank" class="w-full aspect-video overflow-hidden image-item"
+        data-index="{{ loop.index }}" style="display: none;">
+        <img src="{{image}}" loading="lazy" alt="Mecha Image"
+          class="object-cover hover:scale-105 duration-500 transition-all ease-in-out w-full h-auto">
+      </a>
     {% endfor %}
   </div>
   <div class="flex w-full justify-center items-center mt-6 mb-3">
