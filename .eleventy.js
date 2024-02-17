@@ -49,7 +49,7 @@ module.exports = function (eleventyConfig) {
     
 
     // Run search for images in /static/img
-const mainImages = fg.sync(['**/img/**/*.{jpg,png}', '!**/_site']);
+const mainImages = fg.sync(['**/img/**/*.{jpg,png,webp}', '!**/_site']);
 
 
 // Create collection of gallery images
